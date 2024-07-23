@@ -9,6 +9,16 @@ This Dataset included student feedback with sentiment and topic of this feedback
 
 Almost all feedback is short (longer feedback has 48 words).
 
+## Pretrained model
+
+[Multilingual e5 base](https://huggingface.co/intfloat/multilingual-e5-base) is initialized from xlm-roberta-base and continually trained on a mixture of multilingual datasets. It supports 100 languages from xlm-roberta (then they support Vietnamese xD), but low-resource languages may see performance degradation. This model is trained with 2 stages:
+
+- Initialization: xlm-roberta-base
+- First stage: contrastive pre-training with weak supervision
+- Second stage: supervised fine-tuning
+
+In my experience, this model will act very good in many public and secret dataset I tried.
+
 # Motivation
 
 Because text classification is a common task I need to do it a lot of time and I can reuse this code (just change the dataset). Previously, I only saved the code locally and didn't clean the code, so it was difficult to find and take advantage of the old code (I had to re-read the old code). I've also lost data with many important projects so I need to back it up to reuse and improve more easily.
